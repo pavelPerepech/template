@@ -1,0 +1,20 @@
+<SplitPane split='vertical' 
+                    sizes={this.state.split} style={{backgroundColor: 'blue', height: '100px'}}
+                    onChange={this.applySplitPosition}>
+                <Pane minSize={300} maxSize='50%'>          
+                    <NodeList
+                        path={this.state.path}
+                        nodes={this.state.nodes} 
+                        onQueryLevel={this.queryLevelInfo} 
+                        onSelect={(path) => this.queryValue(path)}  />
+                </Pane>
+
+                <ValueViewer value={this.state.selectedValue}/>        
+            </SplitPane>
+
+
+            <div style={{ ...layoutCSS }}>
+                <SyntaxHighlighter sx={{with: 1, height: 1}} language='groovy'>{this.props.value}
+                    
+                </SyntaxHighlighter>
+            </div>
